@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import Multiselect from "./components/multiselect";
-import { IOption } from "./components/multiselect/IOption";
+import Tag from "./components/tag";
+import { IOption } from "./models/interfaces";
+
 
 function App() {
   const options: IOption[] = [
@@ -10,16 +12,21 @@ function App() {
     { id: "2", value: "Dustin", label: "Dustin", selected: false },
   ];
 
-  const [optionState, setOptionState] = useState(options);
+  const [optionsState, setOptionsState] = useState(options);
 
-  const onChangeHandler = ({
-    target,
-  }: React.ChangeEvent<HTMLInputElement>): void => {
-    const options = [...optionState];
-    const selectedOption = options.find(({ id }) => id === target.id);
+  const updateSelectedOption = (option: IOption): void => {
+    const options = [...optionsState];
+    const selectedOption = options.find((op) => op === option);
     selectedOption && (selectedOption.selected = !selectedOption.selected);
-    setOptionState(options);
-    console.log(optionState);
+    setOptionsState(options);
+    console.log(optionsState);
+  };
+
+  const removeSelectedOption = (option: IOption) => {
+    const options = [...optionsState];
+    const selectedOption = options.find((op) => op === option);
+    selectedOption && (selectedOption.selected = false);
+    setOptionsState(options);
   };
 
   return (
@@ -27,9 +34,12 @@ function App() {
       <div className="multiselct">
         <Multiselect
           title="MULTISELECT"
-          options={optionState}
-          onChangeHandler={onChangeHandler}
+          options={optionsState}
+          onChangeHandler={updateSelectedOption}
         />
+      </div>
+      <div className="tag">
+        <Tag options={optionsState} onClickHandler={removeSelectedOption} />
       </div>
     </div>
   );

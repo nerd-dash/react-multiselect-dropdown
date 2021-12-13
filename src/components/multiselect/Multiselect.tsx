@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { IOption } from "./IOption";
-
-type MultiselectProps<T extends IOption> = {
-  id?: string;
-  options: T[];
-  title: string;
-  placeholder?: string;
-  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import { IOption } from "../../models/interfaces";
+import DropdownCheckboxItem from "./DropdownCheckboxItem";
+import { MultiselectProps } from "./MultiselectProps";
 
 const Multiselect = ({
   title,
@@ -55,24 +49,4 @@ const Multiselect = ({
   );
 };
 
-type DropdownCheckboxItemProps<T extends IOption> = {
-  option: T;
-  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-const DropdownCheckboxItem = ({
-  option,
-  onChangeHandler,
-}: DropdownCheckboxItemProps<IOption>) => (
-  <div className="dd-list-item" onClick={(e) => e.stopPropagation()}>
-    <input
-      type="checkbox"
-      id={option.id}
-      value={option.value}
-      checked={option.selected}
-      onChange={onChangeHandler}
-    />
-    <label htmlFor={option.id}> {option.label} </label>
-  </div>
-);
 export default Multiselect;
