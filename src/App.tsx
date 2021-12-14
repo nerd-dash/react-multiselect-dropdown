@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./styles/framework.css";
 import Multiselect from "./components/multiselect";
 import { IOption } from "./components/multiselect/IOption";
 
