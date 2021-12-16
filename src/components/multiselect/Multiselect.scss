@@ -1,0 +1,26 @@
+.multiselect--wrapper {
+
+  display: block;
+  .multiselect--header {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+  }
+
+  .multiselect--list {
+    position: absolute;
+    z-index: 10;
+    // width: 100%;
+    // max-height: 215px;
+    // border: 1px solid rgb(223, 223, 223);
+    // border-top: none;
+    // border-bottom-left-radius: 3px;
+    // border-bottom-right-radius: 3px;
+    // box-shadow: 0 2px 5px -1px rgb(232, 232, 232);
+    // background-color: white;
+    // font-weight: 700;
+    // text-align: left;
+    // -webkit-overflow-scrolling: touch;
+  }
+}

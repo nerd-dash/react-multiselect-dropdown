@@ -5,7 +5,7 @@ const Tag = ({ options, onClickHandler }: TagProps<IOption>) => (
   <div className="tag--wrapper">
     {options.map(
       (option) =>
-        option.selected && (
+        option.isSelected && (
           <div key={option.id}>
             <span>{option.label}</span>
             <div onClick={() => onClickHandler(option)}>X</div>
