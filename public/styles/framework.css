@@ -8156,6 +8156,13 @@ font {
 	padding: 0;
 }
 
+.form__input--multi-selectable {
+	background-color: transparent;
+	overflow: visible;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	padding: 0;
+}
+
 .form__input--selectable--dark {
 	color: #000000;
 	border-color: #000000;

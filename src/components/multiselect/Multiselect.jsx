@@ -36,36 +36,58 @@ const Multiselect = (props) => {
 
   const IndicatorSeparator = () => null;
 
-  const Control = ({ children, ...props }) => {
-    const style = { cursor: "pointer" };
+  const styles = {
+    control: (styles) => ({
+      ...styles,
+      display: "flex",
+      border: "none",
+      height: "100%",
+    }),
+    placeholder: (styles) => ({
+      ...styles,
+      textAlign: "left",
+      margin: 0
+    }),
+    container: (styles) => ({
+      ...styles,
+      width: "100%",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      height: "100%"
+    }),
+    valueContainer: (styles) => ({
+      ...styles,
+      padding: 0
+    }),
+    dropdownIndicator: (styles) => ({
+      ...styles,
+      padding: 0
+    }),
+  }
 
-    return (
-      <components.Control {...props}>
-        <span
-          className="form__input form__input--selectable js-article-filter-span"
-          style={style}
-        >
-          {children}
-        </span>
-      </components.Control>
-    );
-  };
 
   return (
-    <Select
-      options={options}
-      isMulti
-      isSearchable={false}
-      closeMenuOnSelect={false}
-      placeholder={title}
-      controlShouldRenderValue={false}
-      hideSelectedOptions={false}
-      isClearable={false}
-      components={{ Option, DropdownIndicator, IndicatorSeparator, Control }}
-      allowSelectAll={true}
-      onChange={onChangeHandler}
-      value={selectedOptions}
-    />
+    <span className="form__input form__input--selectable
+      js-article-filter-span" onClick={(e) => e.preventDefault()}
+    >
+
+      <Select
+        styles={styles}
+        options={options}
+        isMulti
+        isSearchable={false}
+        closeMenuOnSelect={false}
+        placeholder={title}
+        controlShouldRenderValue={false}
+        hideSelectedOptions={false}
+        isClearable={false}
+        components={{ Option, DropdownIndicator, IndicatorSeparator }}
+        allowSelectAll={true}
+        onChange={onChangeHandler}
+        value={selectedOptions}
+      />
+    </span>
   );
 };
 
