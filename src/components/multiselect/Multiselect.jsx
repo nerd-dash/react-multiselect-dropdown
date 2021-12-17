@@ -36,6 +36,21 @@ const Multiselect = (props) => {
 
   const IndicatorSeparator = () => null;
 
+  const Control = ({ children, ...props }) => {
+    const style = { cursor: "pointer" };
+
+    return (
+      <components.Control {...props}>
+        <span
+          className="form__input form__input--selectable js-article-filter-span"
+          style={style}
+        >
+          {children}
+        </span>
+      </components.Control>
+    );
+  };
+
   return (
     <Select
       options={options}
@@ -46,7 +61,7 @@ const Multiselect = (props) => {
       controlShouldRenderValue={false}
       hideSelectedOptions={false}
       isClearable={false}
-      components={{ Option, DropdownIndicator, IndicatorSeparator }}
+      components={{ Option, DropdownIndicator, IndicatorSeparator, Control }}
       allowSelectAll={true}
       onChange={onChangeHandler}
       value={selectedOptions}
