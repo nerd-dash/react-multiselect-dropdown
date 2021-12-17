@@ -36,42 +36,51 @@ const Multiselect = (props) => {
 
   const IndicatorSeparator = () => null;
 
+  const Control = ({ children, ...props }) => (
+    <components.Control className="multiselect__control" {...props}>
+      {children}
+    </components.Control>
+  );
+
   const styles = {
     control: (styles) => ({
       ...styles,
       display: "flex",
       border: "none",
       height: "100%",
+      width: "100%",
     }),
     placeholder: (styles) => ({
       ...styles,
-      textAlign: "left",
-      margin: 0
+      margin: 0,
+      color: "currentColor"
     }),
     container: (styles) => ({
       ...styles,
       width: "100%",
+      textAlign: "start",
       position: "absolute",
       top: 0,
       left: 0,
-      height: "100%"
+      height: "100%",
     }),
     valueContainer: (styles) => ({
       ...styles,
-      padding: 0
+      padding: 0,
     }),
     dropdownIndicator: (styles) => ({
       ...styles,
-      padding: 0
+      padding: 0,
+      color: "currentColor"
     }),
-  }
-
+  };
 
   return (
-    <span className="form__input form__input--selectable
-      js-article-filter-span" onClick={(e) => e.preventDefault()}
+    <span
+      className="form__input form__input--multi-selectable
+      js-article-filter-span"
+      onClick={(e) => e.preventDefault()}
     >
-
       <Select
         styles={styles}
         options={options}
@@ -82,7 +91,7 @@ const Multiselect = (props) => {
         controlShouldRenderValue={false}
         hideSelectedOptions={false}
         isClearable={false}
-        components={{ Option, DropdownIndicator, IndicatorSeparator }}
+        components={{ Option, DropdownIndicator, IndicatorSeparator, Control }}
         allowSelectAll={true}
         onChange={onChangeHandler}
         value={selectedOptions}

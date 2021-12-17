@@ -8163,6 +8163,14 @@ font {
 	padding: 0;
 }
 
+.multiselect__control{
+	padding-left:20px;
+}
+
+.multiselect__control > div {
+	padding-right: 20px;
+}
+
 .form__input--selectable--dark {
 	color: #000000;
 	border-color: #000000;
