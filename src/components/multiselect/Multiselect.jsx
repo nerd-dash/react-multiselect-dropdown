@@ -23,7 +23,7 @@ const Multiselect = (props) => {
         <svg
           focusable="false"
           aria-hidden="true"
-          class="icon icon--small form__icon"
+          className="icon icon--small form__icon"
         >
           <use
             xmlnsXlink="http://www.w3.org/1999/xlink"
