@@ -1,9 +1,17 @@
 import Select, { components } from "react-select";
-import "./Multiselect.scss";
 
-const Multiselect = (props) => {
-  const { title, options, selectedOptions, onChangeHandler } = props;
-
+/**
+ *
+ * @param {Object} multiselectProps - Props for tag component.
+ * @param {string} multiselectProps.title - The placeholder for the dropdown.
+ * @param {Array <{value: string, label: string}>} multiselectProps.options - The array of the starting objects to be selected.
+ * @param {Array <{value: string, label: string}>} multiselectProps.selectedOptions - An array of selected objects.
+ * @param {() => void} multiselectProps.a - Handler function for the onClick event.
+ *
+ * @returns {JSX.Element} A Multiselect component.
+ */
+const Multiselect = ({ title, options, selectedOptions, onChangeHandler }) => {
+  
   const Option = (props) => (
     <div>
       <components.Option {...props}>
@@ -53,7 +61,7 @@ const Multiselect = (props) => {
     placeholder: (styles) => ({
       ...styles,
       margin: 0,
-      color: "currentColor"
+      color: "currentColor",
     }),
     container: (styles) => ({
       ...styles,
@@ -71,7 +79,7 @@ const Multiselect = (props) => {
     dropdownIndicator: (styles) => ({
       ...styles,
       padding: 0,
-      color: "currentColor"
+      color: "currentColor",
     }),
   };
 

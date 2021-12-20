@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Multiselect from "./components/multiselect";
 import Tag from "./components/tag";
-import { IOption } from "./models/interfaces";
 
 function App() {
   const options = [
@@ -16,6 +15,11 @@ function App() {
     console.log(selectedOptions);
   }, [selectedOptions]);
 
+  const onClickHandler = (option) =>
+    setSelectedOptions(
+      selectedOptions.filter((selectedOption) => selectedOption !== option)
+    );
+
   return (
     <div className="App">
       <Multiselect
@@ -25,9 +29,12 @@ function App() {
         onChangeHandler={setSelectedOptions}
       />
 
-      {/* <div className="tag">
-        <Tag options={optionsState} onClickHandler={removeSelectedOption} />
-      </div> */}
+      <div className="tag">
+        <Tag
+          selectedOptions={selectedOptions}
+          onClickHandler={onClickHandler}
+        />
+      </div>
     </div>
   );
 }
