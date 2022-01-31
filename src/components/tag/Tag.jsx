@@ -1,8 +1,8 @@
 /**
  *
- * @param {Object} tagProps - Props for tag component.
- * @param {Array <{value: string, label: string}>} tagProps.selectedOptions - An array of selected objects.
- * @param {() => void} tagProps.onClickHandler - Handler function for the onClick event.
+ * @param {Object} props - Props for tag component.
+ * @param {Array <{value: string, label: string}>} props.selectedOptions - An array of selected objects.
+ * @param {() => void} props.onClickHandler - Handler function for the onClick event.
  *
  * @returns {JSX.Element} A Tag component.
  */

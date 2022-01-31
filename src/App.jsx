@@ -28,6 +28,24 @@ function App() {
         selectedOptions={selectedOptions}
         onChangeHandler={setSelectedOptions}
       />
+            <Multiselect
+        title="Multiselect1"
+        options={options}
+        selectedOptions={selectedOptions}
+        onChangeHandler={setSelectedOptions}
+      />
+            <Multiselect
+        title="Multiselect2"
+        options={options}
+        selectedOptions={selectedOptions}
+        onChangeHandler={setSelectedOptions}
+      />
+            <Multiselect
+        title="Multiselect3"
+        options={options}
+        selectedOptions={selectedOptions}
+        onChangeHandler={setSelectedOptions}
+      />
 
       <div className="tag">
         <Tag

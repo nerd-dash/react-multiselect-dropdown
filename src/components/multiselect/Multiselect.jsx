@@ -2,27 +2,22 @@ import Select, { components } from "react-select";
 
 /**
  *
- * @param {Object} multiselectProps - Props for tag component.
- * @param {string} multiselectProps.title - The placeholder for the dropdown.
- * @param {Array <{value: string, label: string}>} multiselectProps.options - The array of the starting objects to be selected.
- * @param {Array <{value: string, label: string}>} multiselectProps.selectedOptions - An array of selected objects.
- * @param {() => void} multiselectProps.a - Handler function for the onClick event.
+ * @param {Object} props - Props for tag component.
+ * @param {string} props.title - The placeholder for the dropdown.
+ * @param {Array <{value: string, label: string}>} props.options - The array of the starting objects to be selected.
+ * @param {Array <{value: string, label: string}>} props.selectedOptions - An array of selected objects.
+ * @param {() => void} props.onChangeHandler - Handler function for the onClick event.
  *
  * @returns {JSX.Element} A Multiselect component.
  */
 const Multiselect = ({ title, options, selectedOptions, onChangeHandler }) => {
-  
+  const tableOrLargerMediaQuery = "@media only screen and (max-width: 1000px)";
+
   const Option = (props) => (
-    <div>
-      <components.Option {...props}>
-        <input
-          type="checkbox"
-          checked={props.isSelected}
-          onChange={() => null}
-        />{" "}
-        <label>{props.label}</label>
-      </components.Option>
-    </div>
+    <components.Option {...props}>
+      <input type="checkbox" checked={props.isSelected} readOnly />{" "}
+      <label>{props.label}</label>
+    </components.Option>
   );
 
   const DropdownIndicator = (props) => {
@@ -44,12 +39,6 @@ const Multiselect = ({ title, options, selectedOptions, onChangeHandler }) => {
 
   const IndicatorSeparator = () => null;
 
-  const Control = ({ children, ...props }) => (
-    <components.Control className="multiselect__control" {...props}>
-      {children}
-    </components.Control>
-  );
-
   const styles = {
     control: (styles) => ({
       ...styles,
@@ -57,6 +46,11 @@ const Multiselect = ({ title, options, selectedOptions, onChangeHandler }) => {
       border: "none",
       height: "100%",
       width: "100%",
+      paddingLeft: "18px",
+      tableOrLargerMediaQuery: {
+        ...styles[tableOrLargerMediaQuery],
+        paddingLeft: "20px",
+      },
     }),
     placeholder: (styles) => ({
       ...styles,
@@ -80,15 +74,15 @@ const Multiselect = ({ title, options, selectedOptions, onChangeHandler }) => {
       ...styles,
       padding: 0,
       color: "currentColor",
+      paddingRight: "18px",
+      tableOrLargerMediaQuery: {
+        ...styles[tableOrLargerMediaQuery],
+        paddingRight: "28px",
+      },
     }),
   };
 
   return (
-    <span
-      className="form__input form__input--multi-selectable
-      js-article-filter-span"
-      onClick={(e) => e.preventDefault()}
-    >
       <Select
         styles={styles}
         options={options}
@@ -99,12 +93,12 @@ const Multiselect = ({ title, options, selectedOptions, onChangeHandler }) => {
         controlShouldRenderValue={false}
         hideSelectedOptions={false}
         isClearable={false}
-        components={{ Option, DropdownIndicator, IndicatorSeparator, Control }}
+        components={{ Option, DropdownIndicator, IndicatorSeparator }}
         allowSelectAll={true}
         onChange={onChangeHandler}
         value={selectedOptions}
+        classNamePrefix="multiselect"
       />
-    </span>
   );
 };
 
