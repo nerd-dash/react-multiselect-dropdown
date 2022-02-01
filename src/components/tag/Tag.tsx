@@ -7,8 +7,8 @@ const Tag = ({ options, onClickHandler }: TagProps<IOption>) => (
       (option) =>
         option.selected && (
           <div key={option.id}>
-            <span>{option.label}</span>
-            <div onClick={() => onClickHandler(option)}>X</div>
+            <span className="tag--label">{option.label}</span>
+            <span className="tag--check" onClick={() => onClickHandler(option)}>X</span>
           </div>
         )
     )}
