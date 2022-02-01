@@ -1,14 +1,19 @@
 import { useState } from "react";
 import "./styles/framework.css";
+import "./styles/multiselect.css";
 import Multiselect from "./components/multiselect";
 import Tag from "./components/tag";
 import { IOption } from "./models/interfaces";
 
-
 function App() {
   const options: IOption[] = [
     { id: "0", value: "Abe", label: "Abe", selected: false },
-    { id: "1", value: "John", label: "John", selected: true },
+    {
+      id: "1",
+      value: "value with longer text",
+      label: "value with longer text",
+      selected: true,
+    },
     { id: "2", value: "Dustin", label: "Dustin", selected: false },
   ];
 
@@ -31,9 +36,19 @@ function App() {
 
   return (
     <div className="App">
-      <div className="multiselct">
+      <div className="multiselect">
         <Multiselect
-          title="MULTISELECT"
+          title="MULTISELECT 1"
+          options={optionsState}
+          onChangeHandler={updateSelectedOption}
+        />
+        <Multiselect
+          title="MULTISELECT 2"
+          options={optionsState}
+          onChangeHandler={updateSelectedOption}
+        />
+        <Multiselect
+          title="MULTISELECT 3"
           options={optionsState}
           onChangeHandler={updateSelectedOption}
         />
