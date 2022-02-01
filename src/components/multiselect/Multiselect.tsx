@@ -32,6 +32,7 @@ const Multiselect = ({
     <div className="dd-wrapper" onClick={(e) => e.stopPropagation()}>
       <div className="dd-header" onClick={toggleList}>
         <div className="dd-header-title">{title}</div>
+        <div className="dd-header-chevron">V</div>
       </div>
 
       {isListOpen && (
