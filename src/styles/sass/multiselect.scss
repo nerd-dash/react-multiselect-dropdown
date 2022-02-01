@@ -1,0 +1,101 @@
+.App {
+    margin: 20px;
+    
+    .multiselect {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+
+        .dd-wrapper {
+            color: #333333;
+            padding-bottom: 10px;
+            padding-top: 5px;
+            margin-left: 20px;
+            
+            .dd-header 
+            /* form__select js-article-filter-category*/{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: 1px solid #AFAFAF;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            padding: 10px 0;
+
+            &-title {
+                padding: 0 20px;
+            }
+            &-chevron {
+                padding-right: 20px;
+            }
+        }
+
+        .dd-list {
+            border: 1px solid #AFAFAF;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            position: absolute;
+            background-color: #ffffff;
+
+            &-item{
+                padding-left: 20px;
+                
+                input  {
+                    box-shadow: none;
+                    accent-color: #666666;
+                    
+                }
+                
+                label {
+                    padding-left: 10px;
+                    padding-right: 20px;
+                }
+            }
+        }
+        
+    }
+    
+}
+
+@media only screen and (max-width: 639px ) {
+    .multiselect{
+
+        flex-direction: column;
+
+        .dd-wrapper {
+            margin-left: 0px;
+        }
+
+        .dd-list {
+            width: auto;
+        }
+    }
+    
+}
+
+.tag {
+    padding: 10px 0;
+
+    .tag--wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        
+        div {
+            display: flex;
+            align-items: center;
+            margin: 10px 10px;
+            background-color: #EBEBEB;
+
+            .tag--label {
+                padding: 0 20px;
+            }
+            
+            .tag--check {
+                padding-right: 20px;
+            }
+            
+        }
+    }
+}
+}

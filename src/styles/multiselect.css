@@ -1,0 +1,80 @@
+.App {
+  margin: 20px;
+}
+.App .multiselect {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+.App .multiselect .dd-wrapper {
+  color: #333333;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  margin-left: 20px;
+}
+.App .multiselect .dd-wrapper .dd-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #AFAFAF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px 0;
+}
+.App .multiselect .dd-wrapper .dd-header-title {
+  padding: 0 20px;
+}
+.App .multiselect .dd-wrapper .dd-header-chevron {
+  padding-right: 20px;
+}
+.App .multiselect .dd-wrapper .dd-list {
+  border: 1px solid #AFAFAF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  background-color: #ffffff;
+}
+.App .multiselect .dd-wrapper .dd-list-item {
+  padding-left: 20px;
+}
+.App .multiselect .dd-wrapper .dd-list-item input {
+  box-shadow: none;
+  accent-color: #666666;
+}
+.App .multiselect .dd-wrapper .dd-list-item label {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+@media only screen and (max-width: 639px) {
+  .App .multiselect {
+    flex-direction: column;
+  }
+  .App .multiselect .dd-wrapper {
+    margin-left: 0px;
+  }
+  .App .multiselect .dd-list {
+    width: auto;
+  }
+}
+.App .tag {
+  padding: 10px 0;
+}
+.App .tag .tag--wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+.App .tag .tag--wrapper div {
+  display: flex;
+  align-items: center;
+  margin: 10px 10px;
+  background-color: #EBEBEB;
+}
+.App .tag .tag--wrapper div .tag--label {
+  padding: 0 20px;
+}
+.App .tag .tag--wrapper div .tag--check {
+  padding-right: 20px;
+}
+
+/*# sourceMappingURL=multiselect.css.map */
